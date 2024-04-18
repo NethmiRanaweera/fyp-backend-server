@@ -1,0 +1,13 @@
+version: 1.0
+
+endpoints:
+
+  - name: water treatment plant
+
+    port: 5000
+
+    type: REST
+
+    networkVisibility: Public
+    context: /api
+    schemaFilePath: ./openAPI.yaml
