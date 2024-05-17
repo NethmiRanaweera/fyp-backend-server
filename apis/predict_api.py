@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify,current_app
 import numpy as np
 from validation.predict_validation import validate_input,validate_sensor
 from app import mongo_db as db
-from datetime import date
+from datetime import date,datetime
 
 
 predict_api = Blueprint('predict_api', __name__,url_prefix='/api')
@@ -70,6 +70,7 @@ def save_readings():
             'turbidity': data['turbidity'],
             'conductivity': data['conductivity'],
             'temp':data['temp'],
+            'hour':datetime.now().hour
             }
         },upsert=True)
 
